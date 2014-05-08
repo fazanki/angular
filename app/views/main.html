@@ -9,15 +9,44 @@
 
 <div>
   <label>Searh for the people</label>
-  <input type="search" ng-model="search" />
+  <input type="search" ng-model="search" >
 </div>
 <ul>
-  <li ng-repeat="people in teamC | filter:search"><strong>Name: </strong>{{people.name}} <strong>position: </strong>{{people.position}}</li>
+  <li ng-repeat="people in teamC | filter:search">
+    <strong>Name: </strong>{{people.name}}
+    <strong>position: </strong>{{people.position}}
+    <button ng-click="remove($index)">x</button>
+    <span ng-show="$first">First!</span>
+    <span ng-show="$middle">Middle!</span>
+    <span ng-show="$last">Last!</span>
+  </li>
 </ul>
-
-<div class="row marketing">
-
+<p>There are {{teamC.length}} people in team C.</p>
+<div>
+  <label>Name:</label>
+  <input type="text" ng-model="new_name">
 </div>
+
+<div>
+  <label>positon:</label>
+  <input type="text" ng-model="new_position" >
+</div>
+
+<button ng-click="add()">Add</button>
+
+<h2>Select Box</h2>
+<label>Search for people</label>
+<input type="search" ng-model="search_person" > <br>
+<select ng-model="selected_person" ng-options="person.name for person in teamC | filter:search_person">
+  <option value="">Choose a person</option>
+</select>
+
+<div>
+  <input type="text" ng-model="selected_person.name" >
+  <input type="text" ng-model="selected_person.position" >
+</div>
+
+
 
 <div class="footer">
   <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>

@@ -15,4 +15,19 @@ angular.module('learningAngularApp')
       {name:"Franco", position:"front end develper" },
       {name:"Jaky", position:"product owner" }
     ];
+
+    $scope.add = function() {
+      if ($scope.new_name && $scope.new_position) {
+        $scope.teamC.push({
+          name: $scope.new_name,
+          position: $scope.new_position
+        });
+        $scope.new_name = '';
+        $scope.new_position = '';
+      }
+    };
+
+    $scope.remove = function(index) {
+      $scope.teamC.splice(index, 1);
+    }
   });
