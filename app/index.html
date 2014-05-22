@@ -24,7 +24,12 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container" ng-controller="MainCtrl">
+      <div class="header" ng-include="'partials/_header.html'"></div>
+      <div ng-view=""></div>
+      <div class="footer" ng-include="'partials/_footer.html'"></div>
+
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

@@ -10,12 +10,17 @@ angular.module('learningAngularApp')
 
     $scope.teamC = [
       {name:'Gareth', position:'back end developer'},
-      {name:"Aman", position:"qa" },
-      {name:"Karl", position:"ux" },
-      {name:"Franco", position:"front end develper" },
-      {name:"Jaky", position:"product owner" }
+      {name:'Aman', position:'qa' },
+      {name:'Karl', position:'ux' },
+      {name:'Franco', position:'front end develper' },
+      {name:'Jaky', position:'product owner' }
     ];
 
+    $scope.remove = function(index) {
+      $scope.teamC.splice(index, 1);
+    };
+  })
+  .controller('AddCtrl', function ($scope) {
     $scope.add = function() {
       if ($scope.newName && $scope.newPosition) {
         $scope.teamC.push({
@@ -24,10 +29,9 @@ angular.module('learningAngularApp')
         });
         $scope.newName = '';
         $scope.newPosition = '';
+
+        window.location = '#/';
       }
     };
-
-    $scope.remove = function(index) {
-      $scope.teamC.splice(index, 1);
-    };
   });
+
